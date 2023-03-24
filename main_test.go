@@ -1,4 +1,4 @@
-package bchan_test
+package fanout_test
 
 import (
 	"context"
@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/badu/bchan"
+	"github.com/badu/fanout"
 )
 
 func TestNormalUsage(t *testing.T) {
@@ -14,7 +14,7 @@ func TestNormalUsage(t *testing.T) {
 		Name string
 	}
 
-	command := bchan.New[Payload]()
+	command := fanout.New[Payload]()
 	ctx, cancel := context.WithCancel(context.Background())
 	g1c, g2c, g3c := false, false, false
 	var wg sync.WaitGroup
@@ -95,7 +95,7 @@ func TestSomeGiveUp(t *testing.T) {
 		Name string
 	}
 
-	command := bchan.New[Payload]()
+	command := fanout.New[Payload]()
 	ctx, cancel := context.WithCancel(context.Background())
 
 	var wg sync.WaitGroup

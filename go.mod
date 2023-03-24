@@ -1,3 +1,3 @@
-module github.com/badu/bchan
+module github.com/badu/fanout
 
 go 1.20

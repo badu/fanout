@@ -1,4 +1,4 @@
-package bchan
+package fanout
 
 import (
 	"sync"

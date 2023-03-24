@@ -12,8 +12,25 @@ Each recipient receives a copy of the message - if your `payload` is a pointer, 
 The Fan Out pattern is useful in situations where multiple components of a system need to `react` to the same `event` or
 receive the same `data`.
 
+This is a naive implementation of the Fan Out pattern, using channels and generics. 
+
+In its shortest form, it looks like this:
+
+```go
+package mypack
+
+func FanOut[T any](from <-chan T, to ...chan<- T) {
+	for v := range from {
+		for _, ch := range to {
+			ch <- v
+		}
+	}
+}
+
+```
+
 ## Usage
 
 `go get github.com/badu/fanout`
 
-T.B.D.
+T. B. D.
